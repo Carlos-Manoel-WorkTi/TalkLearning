@@ -1,2 +1,0 @@
-# TalkLear
-Projeto da faculdade
