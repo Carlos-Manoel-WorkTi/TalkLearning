@@ -15,7 +15,7 @@ export default function Header() {
         <Rotas>
 
             <Search>
-              <input id="area-input" type="text" placeholder="Digite sua pesquisa..."/>
+              <input id="area-input" type="text" placeholder="Tire suas duvidas..."/>
               <BtnSearch/>
             </Search>
             
