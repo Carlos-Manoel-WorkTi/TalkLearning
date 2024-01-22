@@ -4,9 +4,10 @@ import { BlocoIn, ContainerIn, LineBellow } from "./style";
 interface prop {
   key?: number;
   rep:string;
+  idMsg?:string;
 }
 
-export default function MsgIn({rep}:prop) {
+export default function MsgIn({rep,idMsg}:prop) {
 
 
     const date = new Date();
@@ -14,8 +15,8 @@ export default function MsgIn({rep}:prop) {
     const minSalved = date.getMinutes();
   
   return (
-    <BlocoIn>
-      <ContainerIn>
+    <BlocoIn >
+      <ContainerIn id={`${idMsg}`}>
         <span>{rep}</span>
         <LineBellow><span>{hourSalved+':'+ ( minSalved < 10 ? '0'+ minSalved : minSalved)}</span></LineBellow>
       </ContainerIn>

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ContainerOut = styled.div<{id?:number}>`
+export const ContainerOut = styled.div<{id:string}>`
     width: 30%;
     height: auto;
     background-color: #199d4e;
@@ -10,7 +10,7 @@ export const ContainerOut = styled.div<{id?:number}>`
     color: white;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     `
-export const ContainerIn = styled.div<{id?:number}>`
+export const ContainerIn = styled.div<{id:string}>`
         width: 20%;
         height: auto;
         background-color: #48ba98;
@@ -27,6 +27,13 @@ export const BlocoIn = styled.div`
     height: auto;
     display: flex;
     justify-content: end;
+    padding-top: 20px;
+`
+export const BlocoOut = styled.div`
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: start;
     padding-top: 20px;
 `
 export const LineBellow = styled.div`

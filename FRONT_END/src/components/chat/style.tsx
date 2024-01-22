@@ -6,6 +6,6 @@ export const Container = styled.section`
     max-height:77vh;
     background-color: #2f2f2f;
     padding: 20px;
-    
+    overflow-y: scroll;
 
 `

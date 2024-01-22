@@ -1,13 +1,23 @@
-import { Container, Opc } from "./style"
-import { LeftCont, ConfigIcon, HelpIcon, HistoryIcon, IconWord, IconFriend, IconHomeWork } from "../../icons/icons"
+import { Container, Friend, Opc } from "./style"
+import { LeftCont, ConfigIcon, HelpIcon, HistoryIcon, IconWord, IconFriend, IconHomeWork, BtnBox } from "../../icons/icons"
 
-export default function NavRight() {
+interface NRP {
+  visible: boolean;
+}
+export default function NavRight({visible}:NRP) {
+
+
+
   return (
 
-      <Container>
+      <Container visible={visible}>
         <Opc>
+          <li> <Friend><img src="https://picsum.photos/50?random" alt="" /><h5>Miguel</h5></Friend> </li>
+          <li>
+            <a href="#"><IconFriend/>Amigos  <BtnBox/></a>
+           
+          </li>
           <li><a href="#"><IconWord/>Idioma</a></li>
-          <li><a href="#"><IconFriend/>Amigos</a></li>
           <li><a href="#"><IconHomeWork/>Exercicios</a></li>
           <li><a href="#"><HistoryIcon/>historias</a></li>   
           <li><a href="#"><ConfigIcon/> configurações</a></li>

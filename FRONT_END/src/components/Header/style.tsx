@@ -42,6 +42,15 @@ export const Logo = styled.h1`
     img{
         width: 40px;
     }
+
+    @media screen and (max-width: 350px){
+      
+        font-size: 20px;
+
+        img{
+            width: 30px;
+         }
+    }
  
 `
 export const Rotas = styled.ul`
@@ -85,6 +94,3 @@ img{
  border-radius: 50%;
  }
 `
-
-
-

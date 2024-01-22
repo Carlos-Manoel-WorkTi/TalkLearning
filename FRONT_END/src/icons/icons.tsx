@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { IoIosSearch, IoMdChatbubbles } from "react-icons/io";
 import { FiAlignLeft } from "react-icons/fi";
 import { BsFillSendFill,  BsBoxArrowRight } from "react-icons/bs";
-import { MdKeyboardVoice, MdOutlineInsertEmoticon } from "react-icons/md";
+import { MdKeyboardVoice, MdOutlineInsertEmoticon, MdOutlineExpandMore } from "react-icons/md";
 import { GoPaperclip } from "react-icons/go";
 import { GrConfigure } from "react-icons/gr";
 import { FaBook,  FaUserFriends } from "react-icons/fa";
@@ -11,17 +11,24 @@ import { LuPencil } from "react-icons/lu";
 import { BiHelpCircle } from "react-icons/bi";
 import { MdOutlineDarkMode } from "react-icons/md";
 import { IoHomeOutline } from "react-icons/io5";
+import { AiOutlineClose } from 'react-icons/ai';
+
+export const BtnBox = styled(MdOutlineExpandMore)`
+    font-size: 1.5rem;
+    padding: 10px 5px;
+    
+`
 
 export const BtnSearch = styled(IoIosSearch)`
     font-size: 1.5rem;
     padding: 5px;
 `
-export const BtnMenu = styled(FiAlignLeft)`
+export const BtnMenu = styled(FiAlignLeft)<{status:boolean}>`
     font-size: 1.5rem;
     padding: 5px;
-
-    @media screen and (min-width: 600px){
-        display: none;
+    display: none;
+    @media screen and (max-width: 600px){
+        display: ${(prop)=>(prop.status ? 'block' : 'none')};
     }
 `
 
@@ -124,4 +131,13 @@ export const IconHomeWork = styled(LuPencil)`
      color: #dbdb09;
  `
 
+// Menu
+ export const BtnClose = styled(AiOutlineClose)<{status:boolean}>`
+     font-size: 1.5rem;
+    padding: 5px;
+    color: red;
+    @media screen and (min-width: 600px){
+        display: ${(prop)=>(prop.status ? 'block' : 'none')};
+    }
+ `
  

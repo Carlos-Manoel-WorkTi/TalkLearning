@@ -1,12 +1,25 @@
-import { BtnSearch, BtnMenu, Dark, IconHome, IconChat } from "../../icons/icons"
+import { useState } from "react"
+import { BtnSearch, BtnMenu, Dark, IconHome, IconChat, BtnClose } from "../../icons/icons"
 import { Head, Rotas, Logo, Nav, Search, Perfil } from "./style"
 
-export default function Header() {
+type HeaderProps = {
+  hideMenu: (status: boolean) => void
+}
+
+export default function Header({ hideMenu }: HeaderProps) {
+  const [activeMenu,setActiveMenu] = useState(true)
+  
+  function handleMenu(){
+    setActiveMenu(!activeMenu)
+    hideMenu(activeMenu)
+  }
+  
   return (
   <Head>
 
     <Nav>
-        <BtnMenu></BtnMenu>
+
+       { activeMenu ?  <BtnMenu status={true} onClick={handleMenu}></BtnMenu>:<BtnClose status={false} onClick={handleMenu}></BtnClose>  }
         <Logo>
            <img src="/tele.svg" alt="" />TalkLearning
         </Logo>
