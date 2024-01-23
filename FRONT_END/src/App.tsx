@@ -9,6 +9,9 @@ import MsgIn from './components/Message/MsgIn.tsx';
 import MsgOut from './components/Message/MsgOut.tsx';
 import Api from './Api/api.tsx';
 import { BtnAudioSend, BtnIcons, BtnMsgSend, BtnOther } from './icons/icons.tsx';
+import ErrorBoundary from './components/Error/error.tsx';
+
+
 
 
 
@@ -38,11 +41,11 @@ function App() {
   try {
     
     const data = await Api.postReq(obj);
-    console.log(data)
-
+    
     setTimeout(() => {
-    setListMsg((prev) => [...prev,...data]);
-  }, 1000);
+      setListMsg((prev) => [...prev,data]);
+    }, 1000);
+   
     return data;
 
   } catch (error) {
@@ -90,11 +93,12 @@ function addMessageToList() {
   
   return (
     <>
+    <ErrorBoundary>
       <Style_Global />
       <Header hideMenu={showMenu}></Header>
 
       <Main>
-        <NavRight visible={MenuShow} />
+        <NavRight visible={MenuShow.toString()} />
 
         <SectionChat> 
           <Chat>
@@ -104,7 +108,8 @@ function addMessageToList() {
               if(ms.remetente === 'user'){
                 return  <MsgIn key={index} rep={ms.msg} idMsg={'1'}/>
               }else{
-                return <MsgOut key={index} msg={ms.msg}/>               
+                return <MsgOut key={index} msg={ms.msg}/>   
+                          
               }
           })}
        
@@ -123,6 +128,7 @@ function addMessageToList() {
           <Ads></Ads>
         </aside>
       </Main>
+      </ErrorBoundary>
     </>
   );
 }

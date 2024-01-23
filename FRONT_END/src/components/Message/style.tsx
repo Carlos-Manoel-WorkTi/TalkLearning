@@ -11,7 +11,8 @@ export const ContainerOut = styled.div<{id:string}>`
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     `
 export const ContainerIn = styled.div<{id:string}>`
-        width: 20%;
+        width: auto;
+        /* min-width: 12%; */
         height: auto;
         background-color: #48ba98;
         border-radius: 10px;
@@ -19,6 +20,7 @@ export const ContainerIn = styled.div<{id:string}>`
         float: right;
         margin-right: 40px;
         padding: 10px;
+        padding-bottom: 4px;
         color: white;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     `
@@ -37,7 +39,7 @@ export const BlocoOut = styled.div`
     padding-top: 20px;
 `
 export const LineBellow = styled.div`
-    width: 100%;
+    width: auto;
     height: 5px;
     display: flex;
     justify-content: end;
@@ -45,4 +47,11 @@ export const LineBellow = styled.div`
     span{
         font-size: 0.7em    ;
     }
+`
+export const Line = styled.div`
+display: flex;
+justify-content: end;
+width: auto;
+gap: 10px;
+padding-top: 4px;
 `

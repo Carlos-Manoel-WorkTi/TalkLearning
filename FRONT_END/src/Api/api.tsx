@@ -21,8 +21,9 @@ class Api {
         },
         body: JSON.stringify(data)
       })
-
+      
       const resp = await sendReq.json()
+      console.log(resp);
       
       
       return resp

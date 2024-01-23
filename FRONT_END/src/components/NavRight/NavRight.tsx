@@ -2,7 +2,7 @@ import { Container, Friend, Opc } from "./style"
 import { LeftCont, ConfigIcon, HelpIcon, HistoryIcon, IconWord, IconFriend, IconHomeWork, BtnBox } from "../../icons/icons"
 
 interface NRP {
-  visible: boolean;
+  visible: string;
 }
 export default function NavRight({visible}:NRP) {
 
@@ -10,7 +10,7 @@ export default function NavRight({visible}:NRP) {
 
   return (
 
-      <Container visible={visible}>
+      <Container $visible={visible.toString()}>
         <Opc>
           <li> <Friend><img src="https://picsum.photos/50?random" alt="" /><h5>Miguel</h5></Friend> </li>
           <li>

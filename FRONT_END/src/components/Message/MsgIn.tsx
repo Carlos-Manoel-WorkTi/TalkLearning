@@ -1,5 +1,8 @@
 
-import { BlocoIn, ContainerIn, LineBellow } from "./style";
+import { Trasnlate } from "../../icons/icons";
+import { BlocoIn, ContainerIn, LineBellow, Line } from "./style";
+
+
 
 interface prop {
   key?: number;
@@ -7,9 +10,13 @@ interface prop {
   idMsg?:string;
 }
 
+
 export default function MsgIn({rep,idMsg}:prop) {
 
 
+  
+
+    
     const date = new Date();
     const hourSalved = date.getHours();
     const minSalved = date.getMinutes();
@@ -18,7 +25,11 @@ export default function MsgIn({rep,idMsg}:prop) {
     <BlocoIn >
       <ContainerIn id={`${idMsg}`}>
         <span>{rep}</span>
-        <LineBellow><span>{hourSalved+':'+ ( minSalved < 10 ? '0'+ minSalved : minSalved)}</span></LineBellow>
+        <Line>
+           <Trasnlate/>
+           <LineBellow><span>{hourSalved+':'+ ( minSalved < 10 ? '0'+ minSalved : minSalved)}</span></LineBellow>
+        </Line>
+       
       </ContainerIn>
     </BlocoIn>
   ) 

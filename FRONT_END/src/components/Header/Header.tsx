@@ -2,6 +2,7 @@ import { useState } from "react"
 import { BtnSearch, BtnMenu, Dark, IconHome, IconChat, BtnClose } from "../../icons/icons"
 import { Head, Rotas, Logo, Nav, Search, Perfil } from "./style"
 
+
 type HeaderProps = {
   hideMenu: (status: boolean) => void
 }
@@ -19,7 +20,7 @@ export default function Header({ hideMenu }: HeaderProps) {
 
     <Nav>
 
-       { activeMenu ?  <BtnMenu status={true} onClick={handleMenu}></BtnMenu>:<BtnClose status={false} onClick={handleMenu}></BtnClose>  }
+       { activeMenu ?  <BtnMenu status='true' onClick={handleMenu}></BtnMenu>:<BtnClose status='false' onClick={handleMenu}></BtnClose>  }
         <Logo>
            <img src="/tele.svg" alt="" />TalkLearning
         </Logo>

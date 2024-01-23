@@ -11,7 +11,7 @@ const fadeInFromLeft = keyframes`
   }
 `;
 
-export const Container = styled.nav<{visible:boolean}>`
+export const Container = styled.nav<{$visible:string}>`
     width: 380px;
     height: 92vh;
     margin: 0;
@@ -20,7 +20,7 @@ export const Container = styled.nav<{visible:boolean}>`
   animation: ${fadeInFromLeft} 1s ease-out forwards;
 
     @media screen and (max-width: 600px){
-        display: ${(props) => (props.visible ? 'none' : 'block')};
+        display: ${(props) => (props.$visible === 'true' ? 'none' : 'block')};
         position: absolute;
         width: 300px;
     }

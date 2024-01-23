@@ -1,4 +1,5 @@
-import { BlocoOut, ContainerOut, LineBellow } from "./style";
+import { Trasnlate } from "../../icons/icons";
+import { BlocoOut, ContainerOut, Line, LineBellow } from "./style";
 
 interface prop {
    key?: number;
@@ -16,7 +17,11 @@ export default function MsgOut({msg,idMsg}:prop) {
    <BlocoOut>
       <ContainerOut id={`${idMsg}`}>
         <span>{msg}</span>
-        <LineBellow><span>{hourSalved+':'+ ( minSalved < 10 ? '0'+ minSalved : minSalved)}</span></LineBellow>
+        <Line>
+           <Trasnlate/>
+           <LineBellow><span>{hourSalved+':'+ ( minSalved < 10 ? '0'+ minSalved : minSalved)}</span></LineBellow>
+        </Line>
+        
       </ContainerOut>
    </BlocoOut>
     
