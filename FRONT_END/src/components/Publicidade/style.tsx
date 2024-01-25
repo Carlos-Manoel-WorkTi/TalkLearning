@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
-export const ContainerAds = styled.div`
+export const ContainerAds = styled.div` 
+    z-index: 8;
     width: 18vw;
     height: 100vh;
     background-color: #080808;

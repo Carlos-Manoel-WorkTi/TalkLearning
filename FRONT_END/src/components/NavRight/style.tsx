@@ -12,6 +12,7 @@ const fadeInFromLeft = keyframes`
 `;
 
 export const Container = styled.nav<{$visible:string}>`
+    z-index: 9;
     width: 380px;
     height: 92vh;
     margin: 0;

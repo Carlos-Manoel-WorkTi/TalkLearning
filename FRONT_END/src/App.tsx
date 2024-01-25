@@ -1,4 +1,6 @@
 import { ChangeEvent, useState } from 'react';
+
+// Components
 import { Main, SectionChat, ContainerWrite, InputC } from './styleApp.tsx';
 import Header from './components/Header/Header.tsx';
 import NavRight from './components/NavRight/NavRight.tsx';
@@ -10,6 +12,7 @@ import MsgOut from './components/Message/MsgOut.tsx';
 import Api from './Api/api.tsx';
 import { BtnAudioSend, BtnIcons, BtnMsgSend, BtnOther } from './icons/icons.tsx';
 import ErrorBoundary from './components/Error/error.tsx';
+import Messages  from './components/Messages/message.tsx';
 
 
 
@@ -31,9 +34,10 @@ const generateUniqueId = () => {
 
 function App() {
 
-
   const [msgValue,setMsgValue] = useState('');
   const [listMsg,setListMsg]= useState<ListMsgInterface[]>([{ msg: 'Hello, what is your name?', remetente: 'root', idMsg: generateUniqueId() }])
+  const [MenuShow, setMenuShow] = useState(true);
+
 
 
  // Busque dados no servidor
@@ -59,6 +63,12 @@ function App() {
     setMsgValue(e.target.value);
   }
 
+  function showMenu() {
+    setMenuShow(!MenuShow);
+     
+  }
+  
+
 function addMessageToList() {
       if(msgValue === '') return
       //Criar um obj com as dados passado pelo o usuario 
@@ -67,7 +77,7 @@ function addMessageToList() {
       setListMsg((prev) => [...prev,newMessage]);
       // Faz a logica no servidor e salva a resposta na lista
       fetchDataAndSetState(newMessage);
-      console.log(listMsg);
+
       
       setMsgValue('');
 
@@ -84,25 +94,20 @@ function addMessageToList() {
     };
 
   
-  const [MenuShow, setMenuShow] = useState(true);
-  function showMenu() {
-    setMenuShow(!MenuShow);
-    console.log(MenuShow);
-     
-  }
-  
   return (
     <>
     <ErrorBoundary>
       <Style_Global />
-      <Header hideMenu={showMenu}></Header>
+       <Header hideMenu={showMenu}></Header>
 
       <Main>
         <NavRight visible={MenuShow.toString()} />
 
         <SectionChat> 
           <Chat>
-
+          <Messages>
+            
+          
           {listMsg.map((ms, index) => {
               
               if(ms.remetente === 'user'){
@@ -112,16 +117,18 @@ function addMessageToList() {
                           
               }
           })}
-       
-          </Chat> 
-
+          </Messages>
+         
           <ContainerWrite> 
             <BtnOther />
             <BtnIcons />
-            <InputC placeholder="Digite sua mensagem..." value={msgValue} onChange={handleInput} onKeyDown={handleKeyDown} />
+            <InputC placeholder="Digite sua mensagem..." value={msgValue} onChange={handleInput} onKeyDown={handleKeyDown}  />
             <BtnMsgSend onClick={addMessageToList} />
             <BtnAudioSend />
           </ContainerWrite>
+
+          </Chat> 
+
         </SectionChat>
 
         <aside>

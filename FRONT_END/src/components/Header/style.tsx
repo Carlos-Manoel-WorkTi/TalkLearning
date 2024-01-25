@@ -42,15 +42,15 @@ export const Logo = styled.h1`
     img{
         width: 40px;
     }
-
-    @media screen and (max-width: 350px){
+    @media screen and (max-width: 600px){
       
-        font-size: 20px;
+      font-size: 20px;
 
-        img{
-            width: 30px;
-         }
-    }
+      img{
+          width: 30px;
+       }
+  }
+
  
 `
 export const Rotas = styled.ul`

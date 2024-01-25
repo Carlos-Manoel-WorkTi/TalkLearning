@@ -23,7 +23,7 @@ class Api {
       })
       
       const resp = await sendReq.json()
-      console.log(resp);
+      // console.log(resp);
       
       
       return resp
